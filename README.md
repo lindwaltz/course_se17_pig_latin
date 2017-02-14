@@ -1,5 +1,5 @@
 
-![](./porkylogo.png)
+![](./src/assets/logo.png)
 
 Porky - Joyous Pig Latin Generator
 ==================================
