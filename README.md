@@ -12,10 +12,11 @@ It's done as part of the course [WASP Software Engineering](http://wasp-sweden.o
 Build Status
 ------------
 BUILD STATUS: ![](https://circleci.com/gh/lindwaltz/course_se17_pig_latin.png?circle-token=6091784b8c3f7d070ddeda41db3487e69dfb4089)
+[![Circle CI status](https://circleci.com/gh/lindwaltz/course_se17_pig_latin.png?circle-token=6091784b8c3f7d070ddeda41db3487e69dfb4089)](https://circleci.com/gh/lindwaltz/course_se17_pig_latin/tree/master)
 
 Running
 -------
-Use our hosted website at http://TODO
+Use our Continously Deployed website at https://lindwaltz.github.io/course_se17_pig_latin/
 
 Developing
 ----------
@@ -55,12 +56,6 @@ npm test
 # continuously test (unit tests)
 npm run unitlive
 ```
-
-Installing a CI Agent
----------------------
-
-1. Follow the documentation on [GitLab Runner](https://docs.gitlab.com/runner/install/)
-
 
 About
 -----
