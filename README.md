@@ -16,10 +16,7 @@ Build Status
 
 Running
 -------
-
-```bash
-npm run dev
-```
+Use our hosted website at http://TODO
 
 Developing
 ----------
@@ -50,8 +47,14 @@ npm run unit
 # run e2e tests
 npm run e2e
 
+# run linter
+npm run lint
+
 # run all tests
 npm test
+
+# continuously test (unit tests)
+npm run unitlive
 ```
 
 About
