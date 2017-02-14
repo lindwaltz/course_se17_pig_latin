@@ -11,8 +11,7 @@ It's done as part of the course [WASP Software Engineering](http://wasp-sweden.o
 
 Build Status
 ------------
-BUILD STATUS: ![](https://circleci.com/gh/lindwaltz/course_se17_pig_latin.png?circle-token=6091784b8c3f7d070ddeda41db3487e69dfb4089)
-[![Circle CI status](https://circleci.com/gh/lindwaltz/course_se17_pig_latin.png?circle-token=6091784b8c3f7d070ddeda41db3487e69dfb4089)](https://circleci.com/gh/lindwaltz/course_se17_pig_latin/tree/master)
+[CircleCI build status](https://circleci.com/gh/lindwaltz/course_se17_pig_latin/tree/master): [![Circle CI status](https://circleci.com/gh/lindwaltz/course_se17_pig_latin.png?circle-token=6091784b8c3f7d070ddeda41db3487e69dfb4089)](https://circleci.com/gh/lindwaltz/course_se17_pig_latin/tree/master)
 
 Running
 -------
