@@ -57,6 +57,12 @@ npm test
 npm run unitlive
 ```
 
+Installing a CI Agent
+---------------------
+
+1. Follow the documentation on [GitLab Runner](https://docs.gitlab.com/runner/install/)
+
+
 About
 -----
 Demonstration project part of the course [WASP Software Engineering](http://wasp-sweden.org/custom/uploads/2017/02/Assignment-2-Tool-Chain.pdf)

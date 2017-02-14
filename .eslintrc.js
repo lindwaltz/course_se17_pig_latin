@@ -21,6 +21,11 @@ module.exports = {
     'arrow-parens': 0,
     // allow async-await
     'generator-star-spacing': 0,
+    // allow skipping spaces
+    'space-before-function-paren': 0,
+    // unused vars are used in dev. allow it as WARN.
+    'no-unused-vars': 1,
+
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
