@@ -24,9 +24,16 @@ npm run dev
 Developing
 ----------
 
+Prerequisites:
+
+* [nodejs](https://nodejs.org/)
+* (optional) [yarn](https://yarnpkg.com/lang/en/docs/cli/install/)
+
+From the commandline:
+
 ``` bash
 # install dependencies
-npm install
+yarn
 
 # serve with hot reload at localhost:8080
 npm run dev
