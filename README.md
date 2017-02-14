@@ -17,7 +17,9 @@ Build Status
 Running
 -------
 
-- Todo
+```bash
+npm run dev
+```
 
 Developing
 ----------
