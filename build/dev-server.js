@@ -1,6 +1,6 @@
 require('./check-versions')()
 
-var config = require('../config')
+var config = require('./config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
@@ -27,7 +27,7 @@ var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
-  quiet: true
+  quiet: false
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {

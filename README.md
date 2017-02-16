@@ -29,6 +29,7 @@ From the commandline:
 
 ``` bash
 # install dependencies
+# note: use 'npm install' if you didn't install yarn
 yarn
 
 # serve with hot reload at localhost:8080
@@ -61,4 +62,5 @@ About
 Demonstration project part of the course [WASP Software Engineering](http://wasp-sweden.org/custom/uploads/2017/02/Assignment-2-Tool-Chain.pdf)
 
 Done by
-- X , Y , Z
+- Martin Svenson
+- Apostolia Tsirikoglou
