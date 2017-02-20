@@ -30,4 +30,4 @@ deployment:
     branch: master
     commands:
       - npm run build
-      - ./build/deploy-ghpages.sh
+      - bash ./build/deploy-ghpages.sh
