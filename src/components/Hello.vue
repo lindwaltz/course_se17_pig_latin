@@ -4,7 +4,7 @@
     <h2>The Joyous Pig Latin Generator</h2>
     <div class="textinput">
       <p>Input:</p>
-      <textarea rows="4" cols="80">{{ piginput }}</textarea>
+      <textarea v-model='piginput' rows="4" cols="80" />
     </div>
     <button v-on:click="piggify()">Piggify!</button>
     <div class="textoutput">
