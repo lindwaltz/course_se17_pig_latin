@@ -10,7 +10,8 @@ remote=$(git config remote.origin.url)
 mkdir gh-pages-branch
 git clone ./ ./gh-pages-branch
 cd gh-pages-branch
-git config --local user.name "lindwaltz"
+git config --local user.name "CircleCI bot"
+git config --local user.email "auto@circleci.com"
 git remote add --fetch github "$remote"
 git checkout gh-pages
 git rm -rf .
