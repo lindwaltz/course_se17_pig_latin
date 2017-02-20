@@ -11,7 +11,7 @@
       <p><i>{{ pigoutput }}<i></p>
     </div>
     <hr />
-    <p>This is a demonstration project of a CI-pipeline <br /> made as part of the WASP software engineering course</p>
+    <p>This is a demonstration project of a CI-pipeline. <br /> made as part of the WASP software engineering course</p>
   </div>
 </template>
 
