@@ -4,6 +4,11 @@ machine:
   node:
     version: 6
 
+general:
+  branches:
+    ignore:
+      - gh-pages
+
 dependencies:
   override:
     - yarn
@@ -12,7 +17,17 @@ dependencies:
 
 test:
   override:
+    - npm run lint
     - npm run unit
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/test/unit/junit-xml/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - mkdir -p $CIRCLE_ARTIFACTS/coverage/karma
+    - cp -a ./test/unit/coverage/* $CIRCLE_ARTIFACTS/coverage/karma
+
+deployment:
+  staging:
+    branch: master
+    commands:
+      - npm run build
+      - ./build/deploy-ghpages.sh
