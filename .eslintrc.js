@@ -24,8 +24,11 @@ module.exports = {
     // allow skipping spaces
     'space-before-function-paren': 0,
 
-    // use camelcase naming
+    // don't use camelcase naming
     'camelcase': 0,
+
+    // don't allow var
+    'no-var': 2,
     
     // allow as WARN because it's used during dev.
     'no-unused-vars': 1,
