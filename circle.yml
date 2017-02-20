@@ -13,3 +13,6 @@ dependencies:
 test:
   override:
     - npm run unit
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/test/unit/junit-xml/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
