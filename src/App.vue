@@ -20,6 +20,9 @@
         <input type="radio" id="rovarspraket" value="rovarspraket" v-model="picked">
         <label for="rovarspraket">Rövarspråket</label>
         <br>
+        <input type="radio" id="fikonspraket" value="fikonspraket" v-model="picked">
+        <label for="fikonspraket">Fikonspråket</label>
+        <br>
       </div>
       <hr />
       <p>This is a demonstration project of a CI-pipeline. <br /> made as part of the WASP software engineering course</p>
@@ -49,6 +52,8 @@ const comp = {
         newmsg = pigspeak.piggify(this.piginput)
       } else if (this.picked === 'rovarspraket') {
         newmsg = pigspeak.rovarify(this.piginput)
+      } else if (this.picked === 'fikonspraket') {
+        newmsg = pigspeak.fikonify(this.piginput)
       }
       this.pigoutput = newmsg
     }

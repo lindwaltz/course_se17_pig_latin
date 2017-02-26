@@ -28,3 +28,15 @@ describe('pigspeak: rövarspråket', () => {
       .to.equal('Fofarorfofaror vovaror enon sosjojörorävovarorsosjojälol.')
   })
 })
+
+describe('pigspeak: fikonspråket', () => {
+  it('should convert words', () => {
+    expect(pigspeak.fikonify('datorgrafik')).to.equal('figrafikdatorkon')
+    expect(pigspeak.fikonify('korv')).to.equal('firvkokon')
+  })
+
+  it('should convert sentences', () => {
+    expect(pigspeak.fikonify('Inga speciella svenska tecken.'))
+      .to.equal('Fofarorfofaror vovaror enon sosjojörorävovarorsosjojälol.')
+  })
+})
