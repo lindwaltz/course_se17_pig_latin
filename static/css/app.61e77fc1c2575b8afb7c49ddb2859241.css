@@ -22,3 +22,19 @@ li[data-v-ec80cf4e] {
 a[data-v-ec80cf4e] {
   color: #42b983;
 }
+.pigconvert[data-v-ec80cf4e] {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: 800px;
+}
+button[data-v-ec80cf4e] {
+  max-height: 50px;
+  margin: 10px;
+}
+.textinput[data-v-ec80cf4e] {
+  margin: 10px;
+}
+.textoutput[data-v-ec80cf4e] {
+  min-width: 200px;
+  max-width: 400px;
+}
