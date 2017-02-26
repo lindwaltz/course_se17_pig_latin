@@ -16,3 +16,15 @@ describe('pigspeak: pig latin', () => {
       .to.equal('Amplesay exttay orfay useway inway anslationtray. Ontainscay Englishway ordsway, ommascay, emicolonssay andway otherway ylestay-elatedray ingiesthay; alasway!')
   })
 })
+
+describe('pigspeak: rövarspråket', () => {
+  it('should convert words', () => {
+    expect(pigspeak.rovarify('hej')).to.equal('hohejoj')
+    expect(pigspeak.rovarify('Pippi')).to.equal('Popipoppopi')
+  })
+
+  it('should convert sentences', () => {
+    expect(pigspeak.rovarify('Farfar var en sjörävarsjäl.'))
+      .to.equal('Fofarorfofaror vovaror enon sosjojörorävovarorsosjojälol.')
+  })
+})
