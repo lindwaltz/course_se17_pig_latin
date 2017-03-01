@@ -22,6 +22,10 @@ function flatten (list) {
   }, [])
 }
 
+function split_at(list, index) {
+  return [list.slice(index), list.slice(0, index)]
+}
+
 /** pig latin */
 function pig_word(word) {
   let strArr = []
@@ -58,6 +62,15 @@ function rovar_word(word) {
   return format_word(wordArr.join(''), capitalize)
 }
 
+/** fikonspraket */
+function fikon_word(word) {
+  const firstChar = word.charAt(0)
+  const capitalize = (firstChar === firstChar.toUpperCase())
+  let index = Math.floor(word.length / 2)
+  let wordArr = split_at(word, index)
+  return format_word('fi' + wordArr.join('') + 'kon', capitalize)
+}
+
 const self = {
   /**
    * Translates english into piglatin.
@@ -80,6 +93,14 @@ const self = {
 
   rovarify(text) {
     return map_word(text.split(/\b/), rovar_word).join('')
+  },
+  /** Translates english into Fikonspråket
+   *
+   * Each word is split in two halves.
+   * The parts are then put in reverse order to form a new word started with "fi" and ended with "kon".
+   */
+  fikonify(text) {
+    return map_word(text.split(/\b/), fikon_word).join('')
   }
 }
 
