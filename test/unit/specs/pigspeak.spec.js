@@ -21,6 +21,7 @@ describe('pigspeak: rövarspråket', () => {
   it('should convert words', () => {
     expect(pigspeak.rovarify('hej')).to.equal('hohejoj')
     expect(pigspeak.rovarify('Pippi')).to.equal('Popipoppopi')
+    expect(pigspeak.rovarify('Sjö')).to.equal('Sosjojö')
   })
 
   it('should convert sentences', () => {
@@ -31,18 +32,20 @@ describe('pigspeak: rövarspråket', () => {
 
 describe('pigspeak: fikonspråket', () => {
   it('should convert words', () => {
-    expect(pigspeak.fikonify('datorgrafik')).to.equal('figrafikdatorkon')
-    expect(pigspeak.fikonify('korv')).to.equal('firvkokon')
-    expect(pigspeak.fikonify('kaffe')).to.equal('fiffekakon')
+    expect(pigspeak.fikonify('datorgrafik')).to.equal('fitorgrafik dakon')
+    expect(pigspeak.fikonify('korv')).to.equal('firv kokon')
+    expect(pigspeak.fikonify('kaffe')).to.equal('fiffe kakon')
+    expect(pigspeak.fikonify('t')).to.equal('t')
+    expect(pigspeak.fikonify('I')).to.equal('I')
   })
 
   it('should convert sentences', () => {
     expect(pigspeak.fikonify('Inga speciella svenska tecken.'))
-      .to.equal('Figainkon fiiellaspeckon finskasvekon fikenteckon.')
+      .to.equal('Finga ikon ficiella spekon finska svekon ficken tekon.')
   })
 
   it('it works with swedish Å QÄ Ö ', () => {
     expect(pigspeak.fikonify('Många pågar påtade.'))
-      .to.equal('Fingamåkon figarpåkon fitadepåkon.')
+      .to.equal('Finga måkon figar påkon fitade påkon.')
   })
 })

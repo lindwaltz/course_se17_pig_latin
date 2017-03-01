@@ -1,8 +1,11 @@
+import 'core-js/es6'
+
 /** check if the char is consonant using RegEx */
 function isConsonant(char) {
-  return !/[aeiouy]/.test(char.toLowerCase())
+  return !/[aeiouyåäöÅÄÖ]/.test(char.toLowerCase())
 }
 
+/** make word lowercase, except for first letter if capitalize is true */
 function format_word(word, capitalize) {
   const res = word.toLowerCase()
   if (capitalize) {
@@ -11,10 +14,20 @@ function format_word(word, capitalize) {
   return res
 }
 
-function map_word(list, fn) {
-  return list.map(x => x.match(/\w/) ? fn(x) : x)
+/** split text into list of words */
+function word_split(text) {
+  return text.split(/([\;\s\n\r\t.,'"+!?-]+)/).filter(Boolean)
 }
 
+/** apply fn to each word in text (but not special characters) */
+function map_words(text, fn) {
+  const words = word_split(text)
+  return words.map(x => x.match(/\w/) ? fn(x) : x)
+}
+
+/** flatten a nested list
+ *  ex: flatten [1, [2, 3], 4] -> [1, 2, 3, 4]
+ */
 function flatten (list) {
   return list.reduce((a, b) => {
     Array.isArray(b) ? a.push(...flatten(b)) : a.push(b)
@@ -66,9 +79,15 @@ function rovar_word(word) {
 function fikon_word(word) {
   const firstChar = word.charAt(0)
   const capitalize = (firstChar === firstChar.toUpperCase())
-  let index = Math.floor(word.length / 2)
-  let wordArr = split_at(word, index)
-  return format_word('fi' + wordArr.join('') + 'kon', capitalize)
+  const wordArr = word.split('')
+  let index = wordArr.findIndex(x => !isConsonant(x)) + 1
+  if (index > 0 && word.length > 1) {
+    let word1 = word.slice(index)
+    let word2 = word.slice(0, index)
+    return format_word('fi' + word1, capitalize) + ' ' + format_word(word2 + 'kon', false)
+  } else {
+    return word
+  }
 }
 
 const self = {
@@ -87,12 +106,11 @@ const self = {
    * - For words that start with "y", treat the "y" as a consonant.
    */
   piggify(text) {
-    const words = text.split(/\b/)
-    return map_word(words, pig_word).join('')
+    return map_words(text, pig_word).join('')
   },
 
   rovarify(text) {
-    return map_word(text.split(/\b/), rovar_word).join('')
+    return map_words(text, rovar_word).join('')
   },
   /** Translates english into Fikonspråket
    *
@@ -100,7 +118,7 @@ const self = {
    * The parts are then put in reverse order to form a new word started with "fi" and ended with "kon".
    */
   fikonify(text) {
-    return map_word(text.split(/\b/), fikon_word).join('')
+    return map_words(text, fikon_word).join('')
   }
 }
 

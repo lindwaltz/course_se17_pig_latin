@@ -36,9 +36,9 @@ module.exports = {
 
     // more settings that are more appropriate as WARN
     'no-trailing-spaces': 1,
-    'padded-blocks': 1,
-    
+    'padded-blocks': 1,    
     'no-extend-native': 1,
+    'no-useless-escape': 1,
 
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
