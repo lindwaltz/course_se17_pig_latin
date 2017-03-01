@@ -33,10 +33,16 @@ describe('pigspeak: fikonspråket', () => {
   it('should convert words', () => {
     expect(pigspeak.fikonify('datorgrafik')).to.equal('figrafikdatorkon')
     expect(pigspeak.fikonify('korv')).to.equal('firvkokon')
+    expect(pigspeak.fikonify('kaffe')).to.equal('fiffekakon')
   })
 
   it('should convert sentences', () => {
     expect(pigspeak.fikonify('Inga speciella svenska tecken.'))
-      .to.equal('Fofarorfofaror vovaror enon sosjojörorävovarorsosjojälol.')
+      .to.equal('Figainkon fiiellaspeckon finskasvekon fikenteckon.')
+  })
+
+  it('it works with swedish Å QÄ Ö ', () => {
+    expect(pigspeak.fikonify('Många pågar påtade.'))
+      .to.equal('Fingamåkon figarpåkon fitadepåkon.')
   })
 })
