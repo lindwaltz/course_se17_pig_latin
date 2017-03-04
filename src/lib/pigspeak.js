@@ -1,6 +1,6 @@
 import 'core-js/es6'
 
-/** check if the char is consonant using RegEx */
+/** return true if character is a consonant */
 function isConsonant(char) {
   return !/[aeiouyåäöÅÄÖ]/.test(char.toLowerCase())
 }
@@ -16,7 +16,7 @@ function format_word(word, capitalize) {
 
 /** split text into list of words */
 function word_split(text) {
-  return text.split(/([\;\s\n\r\t.,'"+!?-]+)/).filter(Boolean)
+  return text.split(/([;\s\n\r\t.,'"+!?-]+)/).filter(Boolean)
 }
 
 /** apply fn to each word in text (but not special characters) */
@@ -35,27 +35,27 @@ function flatten (list) {
   }, [])
 }
 
-function split_at(list, index) {
-  return [list.slice(index), list.slice(0, index)]
+/** return true if first character is capitalized */
+function is_capitalized(word) {
+  const firstChar = word.charAt(0)
+  return (firstChar === firstChar.toUpperCase())
 }
 
-/** pig latin */
+/**
+ * Convert a single word to pig latin
+ *    note: see module jsdoc below for details
+ */
 function pig_word(word) {
-  let strArr = []
-  let tmpChar
-
-  const firstChar = word.charAt(0)
-  const capitalize = (firstChar === firstChar.toUpperCase())
+  const capitalize = is_capitalized(word)
 
   // return initial text + "way" if it starts with vowel
-  // if not - convert text to array
-  if (!isConsonant(firstChar)) {
+  if (!isConsonant(word.charAt(0))) {
     return format_word(word + 'way', capitalize)
-  } else {
-    strArr = word.split('')
   }
 
   // push all consonants to the end of the array
+  let tmpChar
+  let strArr = word.split('')
   let maxMoves = strArr.length
   while (maxMoves > 0 && isConsonant(strArr[0])) {
     tmpChar = strArr.shift()
@@ -67,23 +67,21 @@ function pig_word(word) {
   return format_word(strArr.join('') + 'ay', capitalize)
 }
 
-/** rovarspraket */
+/** Convert a single word to Rovarspraket */
 function rovar_word(word) {
-  const firstChar = word.charAt(0)
-  const capitalize = (firstChar === firstChar.toUpperCase())
-  let wordArr = flatten(word.split('').map(x => isConsonant(x) ? [x, 'o', x] : [x]))
+  const capitalize = is_capitalized(word)
+  const wordArr = flatten(word.split('').map(x => isConsonant(x) ? [x, 'o', x] : [x]))
   return format_word(wordArr.join(''), capitalize)
 }
 
-/** fikonspraket */
+/** Convert a single word to fikonspraket */
 function fikon_word(word) {
-  const firstChar = word.charAt(0)
-  const capitalize = (firstChar === firstChar.toUpperCase())
+  const capitalize = is_capitalized(word)
   const wordArr = word.split('')
-  let index = wordArr.findIndex(x => !isConsonant(x)) + 1
+  const index = wordArr.findIndex(x => !isConsonant(x)) + 1
   if (index > 0 && word.length > 1) {
-    let word1 = word.slice(index)
-    let word2 = word.slice(0, index)
+    const word1 = word.slice(index)
+    const word2 = word.slice(0, index)
     return format_word('fi' + word1, capitalize) + ' ' + format_word(word2 + 'kon', false)
   } else {
     return word
@@ -109,13 +107,17 @@ const self = {
     return map_words(text, pig_word).join('')
   },
 
+  /**
+   * Translates text into Rövarspråket
+   * Reference: https://sv.wikipedia.org/wiki/Rövarspråket
+   */
   rovarify(text) {
     return map_words(text, rovar_word).join('')
   },
-  /** Translates english into Fikonspråket
-   *
-   * Each word is split in two halves.
-   * The parts are then put in reverse order to form a new word started with "fi" and ended with "kon".
+
+  /**
+   * Translates text into Fikonspråket
+   * Reference: https://sv.wikipedia.org/wiki/Fikonspråket
    */
   fikonify(text) {
     return map_words(text, fikon_word).join('')
