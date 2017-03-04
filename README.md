@@ -20,14 +20,26 @@ Use our Continously Deployed website at https://lindwaltz.github.io/course_se17_
 Developing
 ----------
 
-Prerequisites:
+### Prerequisites (command line)
+
+If you want to run and develop directly on your machine, make sure to install node and yarn:
 
 * [nodejs](https://nodejs.org/)
 * (optional) [yarn](https://yarnpkg.com/lang/en/docs/cli/install/)
 
+### Prerequisites (docker)
+
+Alternatively, you can get up and running user [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
+
+```bash
+docker-compose up
+```
+
+### Starting development
+
 From the commandline:
 
-``` bash
+```bash
 # install dependencies
 # note: use 'npm install' if you didn't install yarn
 yarn
@@ -35,6 +47,12 @@ yarn
 # serve with hot reload at localhost:8080
 npm run dev
 
+# continuously test (unit tests)
+npm run unitlive
+```
+
+Other commands that might be useful:
+```bash
 # build for production with minification
 npm run build
 
@@ -44,17 +62,25 @@ npm run build --report
 # run unit tests
 npm run unit
 
-# run e2e tests
-npm run e2e
-
 # run linter
 npm run lint
+```
 
-# run all tests
-npm test
+### Folder structure
 
-# continuously test (unit tests)
-npm run unitlive
+The three most important files are:
+
+- `./src/lib/pigspeak.js` -- pig latin module
+- `./src/App.vue` -- user interface code
+- `./unit/specs/pigspeak.spec.js` -- pig latin tests
+
+The rest of the folders, in brief:
+
+```bash
+./build  # code for building and running
+./src    # source code
+./static # static resources (i.e, images, css)
+./test   # test-related code
 ```
 
 About
