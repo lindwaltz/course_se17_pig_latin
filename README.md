@@ -25,26 +25,17 @@ Developing
 If you want to run and develop directly on your machine, make sure to install node and yarn:
 
 * [nodejs](https://nodejs.org/)
-* (optional) [yarn](https://yarnpkg.com/lang/en/docs/cli/install/)
+* (optional) [yarn](https://yarnpkg.com/en/docs/install)
 
-### Prerequisites (docker)
-
-Alternatively, you can get up and running user [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
-
-```bash
-docker-compose up
-```
-
-### Starting development
+### Starting development (command line)
 
 From the commandline:
 
 ```bash
 # install dependencies
-# note: use 'npm install' if you didn't install yarn
-yarn
+yarn # note: use 'npm install' if you didn't install yarn
 
-# serve with hot reload at localhost:8080
+# start webserver with hot reload at localhost:8080
 npm run dev
 
 # continuously test (unit tests)
@@ -66,6 +57,16 @@ npm run unit
 npm run lint
 ```
 
+### Using docker
+
+For a quick 'n dirty dev. environment using [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/)
+
+```bash
+docker-compose up
+```
+
+and then point your browser at [localhost:8080](http://127.0.0.1:8080/)
+
 ### Folder structure
 
 The three most important files are:
@@ -79,7 +80,6 @@ The rest of the folders, in brief:
 ```bash
 ./build  # code for building and running
 ./src    # source code
-./static # static resources (i.e, images, css)
 ./test   # test-related code
 ```
 
